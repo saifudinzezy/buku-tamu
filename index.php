@@ -28,10 +28,10 @@
     <br>
 
     <?php
-    $host = "registrasi.database.windows.net";
+    $host = "buku.database.windows.net";
     $user = "saifudin";
     $pass = "Dirimu_1";
-    $db = "registrasi";
+    $db = "buku";
 
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
@@ -47,7 +47,7 @@
             $job = $_POST['job'];
             $date = date("Y-m-d");
             // Insert data
-            $sql_insert = "INSERT INTO Registration (name, email, job, date) 
+            $sql_insert = "INSERT INTO tamu (name, email, job, date) 
                         VALUES (?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $name);
@@ -62,20 +62,20 @@
         echo "<h3>Your're registered!</h3>";
     } else if (isset($_POST['load_data'])) {
         try {
-            $sql_select = "SELECT * FROM Registration";
+            $sql_select = "SELECT * FROM tamu";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
                 echo "<h2>Nama Orang yang ber kunjung:</h2>";
                 echo "<table class='table table-hover'>";
-                echo "<tr><th>Name</th>";
-                echo "<th>Email</th>";
-                echo "<th>Job</th>";
+                echo "<tr><th>Nama</th>";
+                echo "<th>NO HP</th>";
+                echo "<th>Bertamu</th>";
                 echo "<th>Date</th></tr>";
                 foreach($registrants as $registrant) {
-                    echo "<tr><td> ".$registrant['name']."</td>";
-                    echo "<td>".$registrant['email']."</td>";
-                    echo "<td>".$registrant['job']."</td>";
+                    echo "<tr><td> ".$registrant['nama']."</td>";
+                    echo "<td>".$registrant['hp']."</td>";
+                    echo "<td>".$registrant['tamu']."</td>";
                     echo "<td>".$registrant['date']."</td></tr>";
                 }
                 echo "</table>";
