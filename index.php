@@ -42,17 +42,17 @@
 
     if (isset($_POST['submit'])) {
         try {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $job = $_POST['job'];
+            $name = $_POST['nama'];
+            $tlp = $_POST['tlp'];
+            $kpl = $_POST['kpl'];
             $date = date("Y-m-d");
             // Insert data
-            $sql_insert = "INSERT INTO tamu (name, email, job, date) 
+            $sql_insert = "INSERT INTO tamu (nama, hp, tamu, date) 
                         VALUES (?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $name);
-            $stmt->bindValue(2, $email);
-            $stmt->bindValue(3, $job);
+            $stmt->bindValue(2, $tlp);
+            $stmt->bindValue(3, $kpl);
             $stmt->bindValue(4, $date);
             $stmt->execute();
         } catch(Exception $e) {
