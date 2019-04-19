@@ -67,13 +67,13 @@
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
                 echo "<h2>Nama Orang yang ber kunjung:</h2>";
-                echo "<table>";
+                echo "<table class='table table-hover'>";
                 echo "<tr><th>Name</th>";
                 echo "<th>Email</th>";
                 echo "<th>Job</th>";
                 echo "<th>Date</th></tr>";
                 foreach($registrants as $registrant) {
-                    echo "<tr><td>".$registrant['name']."</td>";
+                    echo "<tr><td> ".$registrant['name']."</td>";
                     echo "<td>".$registrant['email']."</td>";
                     echo "<td>".$registrant['job']."</td>";
                     echo "<td>".$registrant['date']."</td></tr>";
