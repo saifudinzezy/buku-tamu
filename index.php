@@ -25,8 +25,9 @@
         <input type="submit" name="submit" value="Submit" class="btn btn-primary" />
         <input type="submit" name="load_data" value="Load Data" class="btn btn-warning" />
     </form>
-</div>
- <?php
+    <br>
+
+    <?php
     $host = "registrasi.database.windows.net";
     $user = "saifudin";
     $pass = "Dirimu_1";
@@ -65,7 +66,7 @@
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
-                echo "<h2>People who are registered:</h2>";
+                echo "<h2>Nama Orang yang ber kunjung:</h2>";
                 echo "<table>";
                 echo "<tr><th>Name</th>";
                 echo "<th>Email</th>";
@@ -86,5 +87,7 @@
         }
     }
  ?>
+
+</div>
  </body>
  </html>
