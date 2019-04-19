@@ -7,7 +7,7 @@
  </head>
  <body>
 <div class="container">
-     <h1>Registrasi Buku Tamu!</h1>
+     <h1>Daftar Buku Tamu!</h1>
      <form method="post" action="index.php" enctype="multipart/form-data" >
       <div class="form-group">
         <label for="exampleInputEmail1">Nama</label>
